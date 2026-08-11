@@ -162,4 +162,40 @@ editDate.addEventListener("click", function () {
     });
 });
 
+const whatsappDate = document.getElementById("whatsappDate");
+
+whatsappDate.addEventListener("click", function () {
+    const mensagem = `
+Oi, Pietro! ❤️
+
+Escolhi nosso date:
+
+🍔 Onde vamos comer:
+${comida.map(item => `• ${item}`).join("\n")}
+
+🎬 O rolê:
+${atividade.map(item => `• ${item}`).join("\n")}
+
+🌙 O clima:
+${clima.map(item => `• ${item}`).join("\n")}
+
+✨ Não pode faltar:
+${essencial.map(item => `• ${item}`).join("\n")}
+
+😏 Depois do date:
+${depois.map(item => `• ${item}`).join("\n")}
+
+📅 Data: ${dataFormatada}
+🕐 Horário: ${horarioFormatado}
+
+Agora é só você marcar o date. 👀❤️
+`;
+
+    const numero = "5511976627480";
+
+    const url = `https://wa.me/${numero}?text=${encodeURIComponent(mensagem)}`;
+
+    window.open(url, "_blank");
+});
+
 });
