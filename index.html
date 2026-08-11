@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Site que eu fiz pra ela</title>
+
+    <style>
+        :root {
+            --cor-primaria: #5F0F40;
+            --cor-secundaria: #F0A7A0;
+            --cor-destaque: #F26CA7;
+            --cor-lilas: #CFA0F7;
+            --cor-roxo: #A741CF;
+
+            --cor-fundo: #fdf5f7;
+            --cor-branco: #ffffff;
+            --cor-texto: #333333;
+            --cor-texto-secundario: #555555;
+            --cor-borda: #dddddd;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 40px 20px;
+            font-family: Arial, sans-serif;
+            background: var(--cor-fundo);
+            color: var(--cor-texto);
+        }
+
+        form {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: var(--cor-primaria);
+        }
+
+        .campo {
+            background: var(--cor-branco);
+            padding: 25px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .campo h2 {
+            margin-top: 0;
+            font-size: 20px;
+            color: var(--cor-texto-secundario);
+        }
+
+        .opcao {
+            display: block;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .opcao:hover {
+            background: var(--cor-secundaria);
+        }
+
+        .opcao input {
+            margin-right: 10px;
+        }
+
+        .outro-texto {
+            width: 100%;
+            margin-top: 10px;
+            padding: 12px;
+            border: 1px solid var(--cor-borda);
+            border-radius: 8px;
+            resize: vertical;
+            display: none;
+        }
+
+        .outro input:checked~.outro-texto {
+            display: block;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: var(--cor-destaque);
+            color: var(--cor-branco);
+            font-size: 17px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: var(--cor-roxo);
+        }
+
+        .link-jogos {
+            max-width: 700px;
+            margin: 25px auto 0;
+            text-align: center;
+        }
+
+        .link-jogos a {
+            display: block;
+            padding: 15px 20px;
+
+            background: var(--cor-branco);
+            color: var(--cor-primaria);
+
+            border: 2px solid var(--cor-primaria);
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .link-jogos a:hover {
+            background: var(--cor-primaria);
+            color: var(--cor-branco);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(95, 15, 64, 0.25);
+        }
+
+        .carrossel {
+            max-width: 700px;
+            margin: 25px auto 0;
+            text-align: center;
+        }
+
+        .carrossel a {
+            display: block;
+            padding: 15px 20px;
+
+            background: var(--cor-branco);
+            color: var(--cor-primaria);
+
+            border: 2px solid var(--cor-primaria);
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .carrossel a:hover {
+            background: var(--cor-primaria);
+            color: var(--cor-branco);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(95, 15, 64, 0.25);
+        }
+    </style>
+</head>
+
+<body>
+
+    <form>
+
+        <h1>Site que eu fiz pra ela ❤️</h1>
+
+        <div class="campo">
+            <h2>1. O que vamos fazer no nosso próximo date?</h2>
+
+            <label class="opcao">
+                <input type="checkbox" name="atividade" value="cinema">
+                Ir ao cinema
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="atividade" value="jantar">
+                Sair para jantar
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="atividade" value="parque">
+                Passear em algum parque
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="atividade" value="casa">
+                Fazer alguma coisa juntos em casa
+            </label>
+
+            <label class="opcao outro">
+                <input type="checkbox" name="atividade" value="outro">
+                Outro
+
+                <textarea class="outro-texto" name="atividade_outro"
+                    placeholder="Então me conta... o que você quer fazer?"></textarea>
+            </label>
+        </div>
+
+
+        <div class="campo">
+            <h2>2. Onde você gostaria de ir?</h2>
+
+            <label class="opcao">
+                <input type="checkbox" name="local" value="restaurante">
+                Um restaurante
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="local" value="bar">
+                Um barzinho
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="local" value="parque">
+                Um lugar ao ar livre
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="local" value="surpresa">
+                Deixo você escolher
+            </label>
+
+            <label class="opcao outro">
+                <input type="checkbox" name="local" value="outro">
+                Outro
+
+                <textarea class="outro-texto" name="local_outro" placeholder="Qual lugar você escolheria?"></textarea>
+            </label>
+        </div>
+
+
+        <div class="campo">
+            <h2>3. Qual seria o clima ideal?</h2>
+
+            <label class="opcao">
+                <input type="checkbox" name="clima" value="romantico">
+                Um date bem romântico
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="clima" value="divertido">
+                Algo divertido e descontraído
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="clima" value="aventura">
+                Uma pequena aventura
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="clima" value="tranquilo">
+                Algo mais tranquilo e confortável
+            </label>
+
+            <label class="opcao outro">
+                <input type="checkbox" name="clima" value="outro">
+                Outro
+
+                <textarea class="outro-texto" name="clima_outro"
+                    placeholder="Descreve aí o date perfeito..."></textarea>
+            </label>
+        </div>
+
+
+        <div class="campo">
+            <h2>4. O que não pode faltar?</h2>
+
+            <label class="opcao">
+                <input type="checkbox" name="essencial" value="comida">
+                Comida boa
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="essencial" value="conversa">
+                Uma conversa que dure horas
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="essencial" value="beijo">
+                Muitos beijos
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="essencial" value="surpresa">
+                Alguma surpresa
+            </label>
+
+            <label class="opcao outro">
+                <input type="checkbox" name="essencial" value="outro">
+                Outro
+
+                <textarea class="outro-texto" name="essencial_outro"
+                    placeholder="O que está faltando nessa lista?"></textarea>
+            </label>
+        </div>
+
+
+        <div class="campo">
+            <h2>5. E depois do date?</h2>
+
+            <label class="opcao">
+                <input type="checkbox" name="depois" value="passeio">
+                Continuar passeando
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="depois" value="filme">
+                Assistir alguma coisa juntos
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="depois" value="conversa">
+                Ficar conversando até perder a hora
+            </label>
+
+            <label class="opcao">
+                <input type="checkbox" name="depois" value="surpresa">
+                Deixar o resto por conta do destino 👀
+            </label>
+
+            <label class="opcao outro">
+                <input type="checkbox" name="depois" value="outro">
+                Outro
+
+                <textarea class="outro-texto" name="depois_outro" placeholder="O que você faria?"></textarea>
+            </label>
+        </div>
+
+
+        <button type="submit">
+            Enviar minhas escolhas ❤️
+        </button>
+
+
+    </form>
+    <div class="link-jogos">
+        <a href="./jogos.html">
+            🎮 Ver os jogos que fiz pra você ❤️
+        </a>
+    </div>
+    
+    <div class="carrossel">
+        <a href="./carrossel.html">
+            Surpresa para ela ❤️
+        </a>
+    </div>
+
+</body>
+
+</html>
