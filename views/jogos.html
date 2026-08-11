@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jogos</title>
-    
+    <title>Nossos Jogos ❤️</title>
+
     <style>
         :root {
             --cor-primaria: #5F0F40;
@@ -24,13 +24,17 @@
             --cor-fundo-jogo: #fff7f9;
             --cor-borda-jogo: #f7dce4;
             --cor-desabilitado: #d9aeba;
-        }
 
+            /* Cores das categorias resolvidas do Conexo */
+            --cat-facil: #f8c8dc;
+            --cat-media: #CFA0F7;
+            --cat-dificil: #F26CA7;
+            --cat-especial: #5F0F40;
+        }
 
         * {
             box-sizing: border-box;
         }
-
 
         body {
             margin: 0;
@@ -40,20 +44,17 @@
             color: var(--cor-texto);
         }
 
-
         /* =========================
-       LINK VOLTAR
-    ========================= */
+           LINK VOLTAR
+        ========================= */
 
         .voltar {
             display: block;
             width: fit-content;
             margin: 0 auto 25px;
-
             color: var(--cor-primaria);
             text-decoration: none;
             font-weight: bold;
-
             transition: 0.2s;
         }
 
@@ -62,183 +63,243 @@
             transform: translateX(-3px);
         }
 
-
         /* =========================
-       ÁREA DOS JOGOS
-    ========================= */
+           ÁREA DOS JOGOS
+        ========================= */
 
         .jogos {
             max-width: 700px;
             margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 35px;
         }
-
 
         .jogos h2 {
             text-align: center;
-            margin: 10px 0 30px;
-
+            margin: 10px 0 10px;
             color: var(--cor-primaria);
             font-size: 28px;
         }
 
-
         /* =========================
-       CARD DO JOGO
-    ========================= */
+           CARD DO JOGO
+        ========================= */
 
         .jogo-card {
             background: var(--cor-branco);
-
             padding: 30px;
-
             border-radius: 20px;
-
             box-shadow: 0 6px 25px rgba(95, 15, 64, 0.10);
-
             text-align: center;
-
             border: 1px solid var(--cor-borda-jogo);
         }
-
 
         .jogo-card h3 {
             margin-top: 0;
             margin-bottom: 12px;
-
             font-size: 24px;
-
             color: var(--cor-destaque);
         }
-
 
         .jogo-card p {
             line-height: 1.6;
             color: var(--cor-texto-secundario);
+            margin-bottom: 20px;
         }
 
-
         /* =========================
-       ÁREA DO JOGO
-    ========================= */
+           ÁREA DO JOGO (GERAL)
+        ========================= */
 
         .jogo {
-            margin-top: 25px;
+            margin-top: 15px;
             padding: 25px;
-
             background: var(--cor-fundo-jogo);
-
             border-radius: 15px;
-
             border: 1px solid var(--cor-borda-jogo);
         }
 
+        /* =========================
+           ESTILOS DO CONEXO
+        ========================= */
+
+        .conexo-status {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            font-weight: bold;
+            color: var(--cor-primaria);
+        }
+
+        .conexo-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .conexo-card {
+            background: var(--cor-branco);
+            border: 2px solid var(--cor-secundaria);
+            border-radius: 10px;
+            padding: 15px 5px;
+            font-size: 14px;
+            font-weight: bold;
+            color: var(--cor-primaria);
+            cursor: pointer;
+            text-transform: uppercase;
+            user-select: none;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 65px;
+            word-break: break-word;
+        }
+
+        .conexo-card:hover {
+            border-color: var(--cor-destaque);
+            transform: translateY(-2px);
+        }
+
+        .conexo-card.selected {
+            background: var(--cor-destaque);
+            color: var(--cor-branco);
+            border-color: var(--cor-destaque);
+        }
+
+        .conexo-resolved {
+            grid-column: span 4;
+            border-radius: 10px;
+            padding: 15px;
+            text-align: center;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Força a cor do título e das palavras para roxo escuro ou branco com boa legibilidade */
+        .conexo-resolved h4 {
+            margin: 0 0 5px 0;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: inherit;
+            /* Herda a cor definida via JS */
+        }
+
+        .conexo-resolved p {
+            margin: 0;
+            font-size: 14px;
+            font-weight: bold;
+            color: inherit;
+            /* Herda a cor definida via JS */
+        }
+
+        .conexo-botoes {
+            display: flex;
+            gap: 10px;
+        }
+
+        .conexo-botoes button {
+            flex: 1;
+            margin-top: 0;
+        }
+
+        /* =========================
+           ESTILOS DO ADIVINHE O NÚMERO
+        ========================= */
 
         #chute {
             width: 100%;
             padding: 14px;
-
             border: 2px solid var(--cor-secundaria);
-
             border-radius: 10px;
-
             font-size: 18px;
             text-align: center;
-
             outline: none;
-
             transition: 0.2s;
         }
 
-
         #chute:focus {
             border-color: var(--cor-destaque);
-
-            box-shadow:
-                0 0 0 3px rgba(242, 108, 167, 0.15);
+            box-shadow: 0 0 0 3px rgba(242, 108, 167, 0.15);
         }
 
-
         /* =========================
-       BOTÕES
-    ========================= */
+           BOTÕES GERAIS
+        ========================= */
 
-        .jogo button {
+        .jogo button,
+        .btn-acao {
             width: 100%;
             margin-top: 12px;
             padding: 14px;
-
             border: none;
             border-radius: 10px;
-
             background: var(--cor-destaque);
             color: var(--cor-branco);
-
-            font-size: 17px;
+            font-size: 16px;
             font-weight: bold;
-
             cursor: pointer;
-
-            transition:
-                background 0.2s,
-                transform 0.1s;
+            transition: background 0.2s, transform 0.1s;
         }
 
-
-        .jogo button:hover {
+        .jogo button:hover,
+        .btn-acao:hover {
             background: var(--cor-roxo);
             transform: translateY(-1px);
         }
 
-
-        .jogo button:active {
+        .jogo button:active,
+        .btn-acao:active {
             transform: translateY(1px);
         }
 
-
-        .jogo button:disabled {
+        .jogo button:disabled,
+        .btn-acao:disabled {
             background: var(--cor-desabilitado);
-
             cursor: not-allowed;
-
             transform: none;
         }
 
-
-        /* =========================
-       MENSAGEM
-    ========================= */
-
-        #mensagem {
-            min-height: 30px;
-            margin: 20px 0 5px;
-
-            font-size: 17px;
-            font-weight: bold;
-
+        .btn-secundario {
+            background: var(--cor-secundaria);
             color: var(--cor-primaria);
         }
 
-
-        /* =========================
-       BOTÃO NOVO JOGO
-    ========================= */
-
-        #novoJogo {
-            background: var(--cor-roxo);
+        .btn-secundario:hover {
+            background: var(--cor-lilas);
         }
 
+        /* =========================
+           MENSAGEM
+        ========================= */
 
-        #novoJogo:hover {
-            background: var(--cor-primaria);
+        .mensagem {
+            min-height: 25px;
+            margin: 15px 0 5px;
+            font-size: 16px;
+            font-weight: bold;
+            color: var(--cor-primaria);
         }
 
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
         /* =========================
-       RESPONSIVIDADE
-    ========================= */
+           RESPONSIVIDADE
+        ========================= */
 
         @media (max-width: 600px) {
-
             body {
                 padding: 25px 15px 40px;
             }
@@ -248,129 +309,297 @@
             }
 
             .jogo-card {
-                padding: 20px;
+                padding: 18px 15px;
             }
 
             .jogo {
-                padding: 18px;
+                padding: 15px;
             }
 
-            .jogo-card h3 {
-                font-size: 21px;
+            .conexo-grid {
+                gap: 6px;
+            }
+
+            .conexo-card {
+                font-size: 11px;
+                padding: 8px 2px;
+                min-height: 55px;
+            }
+
+            .conexo-botoes {
+                flex-direction: column;
             }
         }
     </style>
-
-
 </head>
 
 <body>
     <a class="voltar" href="../index.html">
         ← Voltar para o formulário
     </a>
+
     <main class="jogos">
-        <section class="numero">
+        <h2>🎮 Jogos que fiz pra você ❤️</h2>
 
-            <h2>🎮 Jogos que fiz pra você ❤️</h2>
+        <!-- CARD 1: CONEXO PERSONALIZADO -->
+        <div class="jogo-card">
+            <h3>🧩 Conexo: Edição Nossa</h3>
+            <p>Encontre os <strong>4 grupos de 4 palavras</strong> que têm algo em comum sobre nós ou sobre coisas que
+                gostamos!</p>
 
-            <div class="jogo-card">
-
-                <h3>🔢 Adivinhe o número</h3>
-
-                <p>
-                    Eu pensei em um número entre <strong>1 e 100</strong>.
-                    Será que você consegue descobrir?
-                </p>
-
-                <div class="jogo">
-
-                    <input type="number" id="chute" min="1" max="100" placeholder="Digite seu chute">
-
-                    <button id="botaoChutar" onclick="verificarChute()">
-                        Chutar 🎯
-                    </button>
-
-                    <p id="mensagem"></p>
-
-                    <button id="novoJogo" onclick="iniciarJogo()" style="display: none;">
-                        Jogar novamente ❤️
-                    </button>
-
+            <div class="jogo">
+                <div class="conexo-status">
+                    <span>Erros restantes: <span id="conexo-vidas">❤️❤️❤️❤️</span></span>
                 </div>
 
-            </div>
-        </section>
+                <div id="conexo-grid" class="conexo-grid"></div>
 
+                <div id="conexo-mensagem" class="mensagem">Selecione 4 palavras</div>
+
+                <div class="conexo-botoes">
+                    <!-- <button class="btn-secundario" onclick="desmarcarConexo()">Limpar Seleção</button> -->
+                    <button id="btn-enviar-conexo" onclick="verificarConexo()" disabled>Enviar Chute</button>
+                </div>
+
+                <button id="btn-reiniciar-conexo" onclick="iniciarConexo()"
+                    style="display: none; background: var(--cor-roxo);">
+                    Jogar Novamente 🔄
+                </button>
+            </div>
+        </div>
+
+        <!-- CARD 2: ADIVINHE O NÚMERO -->
+        <div class="jogo-card">
+            <h3>🔢 Adivinhe o número</h3>
+            <p>Eu pensei em um número entre <strong>1 e 100</strong>. Será que você consegue descobrir?</p>
+
+            <div class="jogo">
+                <input type="number" id="chute" min="1" max="100" placeholder="Digite seu chute">
+
+                <button id="botaoChutar" onclick="verificarChute()">
+                    Chutar 🎯
+                </button>
+
+                <p id="mensagem" class="mensagem"></p>
+
+                <button id="novoJogo" onclick="iniciarJogoNumero()" style="display: none; background: var(--cor-roxo);">
+                    Jogar novamente ❤️
+                </button>
+            </div>
+        </div>
     </main>
 
-
     <script>
+        /* ========================================================
+           LÓGICA DO JOGO 1: CONEXO PERSONALIZADO
+           ======================================================== */
+
+        // ✏️ EDITE AQUI AS PALAVRAS E CATEGORIAS DO SEU RELACIONAMENTO!
+        const CATEGORIAS_CONEXO = [
+            {
+                nome: "Jogos que jogamos",
+                cor: "var(--cat-facil)",
+                itens: ["TERMO", "CONEXO", "STOP", "FORCA"]
+            },
+            {
+                nome: "Coisas que você gosta",
+                cor: "var(--cat-media)",
+                itens: ["DIREITO", "JOGOS", "CORINTHIANS", "LIVROS"]
+            },
+            {
+                nome: "Coisas que lembram nossos encontros",
+                cor: "var(--cat-dificil)",
+                itens: ["CINEMA", "VINHO", "SÉRIES", "MCDONALDS"]
+            },
+            {
+                nome: "Coisas que o Pietro gosta",
+                cor: "var(--cat-especial)",
+                itens: ["PYTHON", "CÓDIGO", "SINUCA", "VOCÊ"]
+            }
+        ];
+
+
+
+        let conexoSelecionados = [];
+        let conexoResolvidos = [];
+        let conexoVidas = 4;
+        let conexoCartas = [];
+
+        function iniciarConexo() {
+            conexoSelecionados = [];
+            conexoResolvidos = [];
+            conexoVidas = 4;
+            atualizarVidasConexo();
+
+            // Monta lista de cartas e embaralha
+            conexoCartas = [];
+            CATEGORIAS_CONEXO.forEach((cat, indexCat) => {
+                cat.itens.forEach(palavra => {
+                    conexoCartas.push({ palavra, categoriaIndex: indexCat });
+                });
+            });
+            conexoCartas.sort(() => Math.random() - 0.5);
+
+            document.getElementById("btn-reiniciar-conexo").style.display = "none";
+            document.getElementById("conexo-mensagem").textContent = "Selecione 4 palavras";
+            renderizarGridConexo();
+        }
+
+        function renderizarGridConexo() {
+            const grid = document.getElementById("conexo-grid");
+            grid.innerHTML = "";
+
+            // Mostra grupos já resolvidos no topo
+            conexoResolvidos.forEach(catIndex => {
+                const cat = CATEGORIAS_CONEXO[catIndex];
+                const resolvedDiv = document.createElement("div");
+                resolvedDiv.className = "conexo-resolved";
+                resolvedDiv.style.background = cat.cor;
+
+                // Se for a categoria mais escura (--cat-especial), texto branco. 
+                // Nas demais, texto em roxo escuro (--cor-primaria)
+                if (catIndex === 3) {
+                    resolvedDiv.style.color = "#ffffff";
+                } else {
+                    resolvedDiv.style.color = "var(--cor-primaria)";
+                }
+
+                resolvedDiv.innerHTML = `<h4>${cat.nome}</h4><p>${cat.itens.join(", ")}</p>`;
+                grid.appendChild(resolvedDiv);
+            });
+
+            // Mostra as cartas restantes
+            conexoCartas.forEach(item => {
+                if (!conexoResolvidos.includes(item.categoriaIndex)) {
+                    const card = document.createElement("div");
+                    card.className = "conexo-card" + (conexoSelecionados.includes(item.palavra) ? " selected" : "");
+                    card.textContent = item.palavra;
+                    card.onclick = () => selecionarCardConexo(item.palavra);
+                    grid.appendChild(card);
+                }
+            });
+
+            document.getElementById("btn-enviar-conexo").disabled = conexoSelecionados.length !== 4;
+        }
+        function selecionarCardConexo(palavra) {
+            if (conexoSelecionados.includes(palavra)) {
+                conexoSelecionados = conexoSelecionados.filter(p => p !== palavra);
+            } else if (conexoSelecionados.length < 4) {
+                conexoSelecionados.push(palavra);
+            }
+            renderizarGridConexo();
+        }
+
+        function desmarcarConexo() {
+            conexoSelecionados = [];
+            renderizarGridConexo();
+        }
+
+        function atualizarVidasConexo() {
+            const icones = "❤️".repeat(conexoVidas) || "💔";
+            document.getElementById("conexo-vidas").textContent = icones;
+        }
+
+        function verificarConexo() {
+            if (conexoSelecionados.length !== 4) return;
+
+            const msg = document.getElementById("conexo-mensagem");
+
+            // Verifica se as 4 palavras selecionadas pertencem à mesma categoria
+            let grupoEncontrado = null;
+            CATEGORIAS_CONEXO.forEach((cat, index) => {
+                const pertence = conexoSelecionados.every(p => cat.itens.includes(p));
+                if (pertence) grupoEncontrado = index;
+            });
+
+            if (grupoEncontrado !== null) {
+                conexoResolvidos.push(grupoEncontrado);
+                conexoSelecionados = [];
+
+                if (grupoEncontrado === 3) {
+                    msg.textContent = "Essa aí foi fácil... você já devia saber que VOCÊ estaria aqui 👀❤️";
+                } else {
+                    msg.textContent = "Boa! Grupo encontrado! 🎉";
+                }
+
+                if (conexoResolvidos.length === CATEGORIAS_CONEXO.length) {
+                    msg.textContent = "PARABÉNS! Você completou o Conexo! ❤️✨";
+                    document.getElementById("btn-reiniciar-conexo").style.display = "block";
+                }
+            }
+            else {
+                // Checa se acertou 3 de 4
+                let quase = false;
+                CATEGORIAS_CONEXO.forEach((cat) => {
+                    const acertos = conexoSelecionados.filter(p => cat.itens.includes(p)).length;
+                    if (acertos === 3) quase = true;
+                });
+
+                conexoVidas--;
+                atualizarVidasConexo();
+
+                if (quase) {
+                    msg.textContent = "Quase lá! 3 de 4 correspondem. 😬";
+                } else {
+                    msg.textContent = "Nenhum grupo correspondente. Tente de novo! ❌";
+                }
+
+                if (conexoVidas <= 0) {
+                    msg.textContent = "Acabaram as tentativas! Quer tentar de novo? 🥺";
+                    document.getElementById("btn-reiniciar-conexo").style.display = "block";
+                }
+            }
+
+            renderizarGridConexo();
+        }
+
+
+        /* ========================================================
+           LÓGICA DO JOGO 2: ADIVINHE O NÚMERO
+           ======================================================== */
 
         let numeroSecreto;
         let tentativa;
 
-        function iniciarJogo() {
-
+        function iniciarJogoNumero() {
             numeroSecreto = Math.floor(Math.random() * 100) + 1;
             tentativa = 0;
 
-            document.getElementById("mensagem").textContent =
-                "Estou pensando em um número... 👀";
-
+            document.getElementById("mensagem").textContent = "Estou pensando em um número... 👀";
             document.getElementById("chute").value = "";
-
             document.getElementById("novoJogo").style.display = "none";
-
             document.getElementById("chute").disabled = false;
             document.getElementById("botaoChutar").disabled = false;
         }
 
-
         function verificarChute() {
-
             const input = document.getElementById("chute");
             const mensagem = document.getElementById("mensagem");
-
             const chute = Number(input.value);
 
             if (!chute || chute < 1 || chute > 100) {
-
-                mensagem.textContent =
-                    "Escolhe um número entre 1 e 100 😌";
-
+                mensagem.textContent = "Escolha um número entre 1 e 100 😌";
                 return;
             }
 
             tentativa++;
 
             if (chute < numeroSecreto) {
-
-                mensagem.textContent =
-                    `Tentativa ${tentativa}: tente um número maior 📈`;
-
+                mensagem.textContent = `Tentativa ${tentativa}: tente um número maior 📈`;
             } else if (chute > numeroSecreto) {
-
-                mensagem.textContent =
-                    `Tentativa ${tentativa}: tente um número menor 📉`;
-
+                mensagem.textContent = `Tentativa ${tentativa}: tente um número menor 📉`;
             } else {
-
-                mensagem.textContent =
-                    `ACERTOU! 🎉 Você precisou de ${tentativa} tentativa(s)! ❤️`;
-
+                mensagem.textContent = `ACERTOU! 🎉 Você precisou de ${tentativa} tentativa(s)! ❤️`;
                 input.disabled = true;
                 document.getElementById("botaoChutar").disabled = true;
-
                 document.getElementById("novoJogo").style.display = "block";
             }
         }
 
-
-        iniciarJogo();
-
+        // Inicializa ambos os jogos na carga da página
+        iniciarConexo();
+        iniciarJogoNumero();
     </script>
-
-
 </body>
 
 </html>
