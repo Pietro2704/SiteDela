@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,20 @@
     <title>Site que eu fiz pra ela</title>
 
     <style>
+        :root {
+            --cor-primaria: #5F0F40;
+            --cor-secundaria: #F0A7A0;
+            --cor-destaque: #F26CA7;
+            --cor-lilas: #CFA0F7;
+            --cor-roxo: #A741CF;
+
+            --cor-fundo: #fdf5f7;
+            --cor-branco: #ffffff;
+            --cor-texto: #333333;
+            --cor-texto-secundario: #555555;
+            --cor-borda: #dddddd;
+        }
+
         * {
             box-sizing: border-box;
         }
@@ -15,8 +30,8 @@
             margin: 0;
             padding: 40px 20px;
             font-family: Arial, sans-serif;
-            background: #fdf5f7;
-            color: #333;
+            background: var(--cor-fundo);
+            color: var(--cor-texto);
         }
 
         form {
@@ -27,11 +42,11 @@
         h1 {
             text-align: center;
             margin-bottom: 35px;
-            color: #d85b7a;
+            color: var(--cor-primaria);
         }
 
         .campo {
-            background: white;
+            background: var(--cor-branco);
             padding: 25px;
             margin-bottom: 20px;
             border-radius: 15px;
@@ -41,7 +56,7 @@
         .campo h2 {
             margin-top: 0;
             font-size: 20px;
-            color: #555;
+            color: var(--cor-texto-secundario);
         }
 
         .opcao {
@@ -53,7 +68,7 @@
         }
 
         .opcao:hover {
-            background: #fff0f4;
+            background: var(--cor-secundaria);
         }
 
         .opcao input {
@@ -64,13 +79,13 @@
             width: 100%;
             margin-top: 10px;
             padding: 12px;
-            border: 1px solid #ddd;
+            border: 1px solid var(--cor-borda);
             border-radius: 8px;
             resize: vertical;
             display: none;
         }
 
-        .outro input:checked ~ .outro-texto {
+        .outro input:checked~.outro-texto {
             display: block;
         }
 
@@ -79,14 +94,44 @@
             padding: 15px;
             border: none;
             border-radius: 10px;
-            background: #d85b7a;
-            color: white;
+            background: var(--cor-destaque);
+            color: var(--cor-branco);
             font-size: 17px;
             cursor: pointer;
         }
 
         button:hover {
-            background: #c84969;
+            background: var(--cor-roxo);
+        }
+
+        .link-jogos {
+            max-width: 700px;
+            margin: 25px auto 0;
+            text-align: center;
+        }
+
+        .link-jogos a {
+            display: block;
+            padding: 15px 20px;
+
+            background: var(--cor-branco);
+            color: var(--cor-primaria);
+
+            border: 2px solid var(--cor-primaria);
+            border-radius: 10px;
+
+            text-decoration: none;
+            font-size: 17px;
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .link-jogos a:hover {
+            background: var(--cor-primaria);
+            color: var(--cor-branco);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(95, 15, 64, 0.25);
         }
     </style>
 </head>
@@ -124,11 +169,8 @@
                 <input type="checkbox" name="atividade" value="outro">
                 Outro
 
-                <textarea
-                    class="outro-texto"
-                    name="atividade_outro"
-                    placeholder="Então me conta... o que você quer fazer?"
-                ></textarea>
+                <textarea class="outro-texto" name="atividade_outro"
+                    placeholder="Então me conta... o que você quer fazer?"></textarea>
             </label>
         </div>
 
@@ -160,11 +202,7 @@
                 <input type="checkbox" name="local" value="outro">
                 Outro
 
-                <textarea
-                    class="outro-texto"
-                    name="local_outro"
-                    placeholder="Qual lugar você escolheria?"
-                ></textarea>
+                <textarea class="outro-texto" name="local_outro" placeholder="Qual lugar você escolheria?"></textarea>
             </label>
         </div>
 
@@ -196,11 +234,8 @@
                 <input type="checkbox" name="clima" value="outro">
                 Outro
 
-                <textarea
-                    class="outro-texto"
-                    name="clima_outro"
-                    placeholder="Descreve aí o date perfeito..."
-                ></textarea>
+                <textarea class="outro-texto" name="clima_outro"
+                    placeholder="Descreve aí o date perfeito..."></textarea>
             </label>
         </div>
 
@@ -232,11 +267,8 @@
                 <input type="checkbox" name="essencial" value="outro">
                 Outro
 
-                <textarea
-                    class="outro-texto"
-                    name="essencial_outro"
-                    placeholder="O que está faltando nessa lista?"
-                ></textarea>
+                <textarea class="outro-texto" name="essencial_outro"
+                    placeholder="O que está faltando nessa lista?"></textarea>
             </label>
         </div>
 
@@ -268,11 +300,7 @@
                 <input type="checkbox" name="depois" value="outro">
                 Outro
 
-                <textarea
-                    class="outro-texto"
-                    name="depois_outro"
-                    placeholder="O que você faria?"
-                ></textarea>
+                <textarea class="outro-texto" name="depois_outro" placeholder="O que você faria?"></textarea>
             </label>
         </div>
 
@@ -281,7 +309,15 @@
             Enviar minhas escolhas ❤️
         </button>
 
+
     </form>
+    <div class="link-jogos">
+        <a href="./jogos.html">
+            🎮 Ver os jogos que fiz pra você ❤️
+        </a>
+    </div>
+
 
 </body>
+
 </html>
