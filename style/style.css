@@ -1,0 +1,484 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Paleta principal */
+    --cor-primaria: #5F0F40;
+    --cor-secundaria: #F0A7A0;
+    --cor-destaque: #F26CA7;
+    --cor-lilas: #CFA0F7;
+    --cor-roxo: #A741CF;
+
+    /* Utilitários */
+    --cor-fundo: #fdf5f7;
+    --cor-branco: #ffffff;
+    --cor-texto: #3d2931;
+    --cor-texto-sec: #806c73;
+    --cor-borda: #f1d9e0;
+
+    /* Pink para estilo do Projeto 2 */
+    --pink: #F26CA7;
+    --dark-pink: #5F0F40;
+    --light-pink: #fff0f4;
+}
+
+body {
+    font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+    background:
+        radial-gradient(
+            circle at top,
+            #ffe4f0 0%,
+            #fdf5f7 45%,
+            #ffffff 100%
+        );
+
+    color: var(--cor-texto);
+    min-height: 100vh;
+    padding: 30px 16px 60px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+    width: 100%;
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HERO / HEADER
+========================= */
+
+.hero {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.heart {
+    font-size: 46px;
+    margin-bottom: 10px;
+    display: block;
+    animation: heartbeat 1.8s infinite;
+}
+
+.hero h1 {
+    font-size: clamp(32px, 7vw, 52px);
+    line-height: 1.1;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+    color: var(--cor-primaria);
+    margin-bottom: 14px;
+}
+
+.hero p {
+    max-width: 580px;
+    margin: 0 auto;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--cor-texto-sec);
+}
+
+
+/* =========================
+   QUESTÕES / SEÇÕES
+========================= */
+
+.question,
+.date-section {
+    background: var(--cor-branco);
+    border: 1px solid var(--cor-borda);
+    border-radius: 22px;
+    padding: 26px;
+    margin-bottom: 22px;
+    box-shadow: 0 8px 30px rgba(95, 15, 64, 0.06);
+    transition: box-shadow 0.2s ease;
+}
+
+.question:hover,
+.date-section:hover {
+    box-shadow: 0 12px 40px rgba(95, 15, 64, 0.10);
+}
+
+.question h2,
+.date-section h2 {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--cor-primaria);
+    margin-bottom: 18px;
+    line-height: 1.35;
+}
+
+
+/* =========================
+   OPÇÕES (CHECKBOXES)
+========================= */
+
+.options {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.option {
+    position: relative;
+    display: block;
+    cursor: pointer;
+}
+
+.option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.option span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 17px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 14px;
+    background: #fff;
+    color: var(--cor-texto);
+    font-size: 15px;
+    line-height: 1.4;
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.15s ease,
+        box-shadow 0.2s ease;
+}
+
+.option span::before {
+    content: '';
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--cor-borda);
+    border-radius: 6px;
+    background: #fff;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.option:hover span {
+    border-color: var(--cor-destaque);
+    background: #fff7f9;
+    transform: translateY(-1px);
+}
+
+.option:hover span::before {
+    border-color: var(--cor-destaque);
+}
+
+/* Selecionado */
+.option input:checked + span {
+    border-color: var(--cor-destaque);
+    background: var(--light-pink);
+    color: var(--cor-primaria);
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(242, 108, 167, 0.15);
+}
+
+.option input:checked + span::before {
+    background: var(--cor-destaque);
+    border-color: var(--cor-destaque);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='10' viewBox='0 0 12 10'%3E%3Cpath fill='%23fff' d='M1 5l3 3 7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+/* =========================
+   CAMPO DE TEXTO "OUTRO"
+========================= */
+
+.outro-texto {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px 14px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 14px;
+    resize: vertical;
+    display: none;
+    color: var(--cor-texto);
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.outro-texto:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 4px rgba(242, 108, 167, 0.1);
+}
+
+.option input:checked ~ .outro-texto {
+    display: block;
+}
+
+
+/* =========================
+   DATA / HORÁRIO
+========================= */
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--cor-texto-sec);
+}
+
+.field input {
+    width: 100%;
+    padding: 14px;
+    border: 1.5px solid var(--cor-borda);
+    border-radius: 12px;
+    background: #fff;
+    color: var(--cor-texto);
+    font-family: inherit;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.field input:focus {
+    border-color: var(--cor-destaque);
+    box-shadow: 0 0 0 4px rgba(242, 108, 167, 0.1);
+}
+
+
+/* =========================
+   BOTÃO ENVIAR
+========================= */
+
+.submit-button {
+    width: 100%;
+    border: none;
+    border-radius: 16px;
+    padding: 17px 20px;
+    background: linear-gradient(135deg, var(--cor-destaque), var(--cor-roxo));
+    color: white;
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    box-shadow: 0 10px 25px rgba(167, 65, 207, 0.25);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    margin-top: 8px;
+}
+
+.submit-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 35px rgba(167, 65, 207, 0.35);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+
+/* =========================
+   LINKS DE NAVEGAÇÃO
+========================= */
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin-top: 28px;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 16px 22px;
+    background: var(--cor-branco);
+    color: var(--cor-primaria);
+    border: 2px solid var(--cor-primaria);
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 700;
+    transition: all 0.2s ease;
+}
+
+.nav-link:hover {
+    background: var(--cor-primaria);
+    color: var(--cor-branco);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(95, 15, 64, 0.25);
+}
+
+.nav-link.destaque {
+    background: linear-gradient(135deg, var(--cor-destaque), var(--cor-lilas));
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 6px 20px rgba(242, 108, 167, 0.2);
+}
+
+.nav-link.destaque:hover {
+    background: linear-gradient(135deg, var(--cor-roxo), var(--cor-primaria));
+    color: white;
+    box-shadow: 0 8px 25px rgba(167, 65, 207, 0.35);
+}
+
+
+/* =========================
+   TELA DE SUCESSO
+========================= */
+
+.success {
+    margin-top: 25px;
+    padding: 35px 30px;
+    text-align: center;
+    background: white;
+    border: 1px solid var(--cor-borda);
+    border-radius: 22px;
+    box-shadow: 0 8px 30px rgba(95, 15, 64, 0.08);
+    animation: appear 0.4s ease;
+}
+
+.success-heart {
+    font-size: 50px;
+    margin-bottom: 12px;
+    display: block;
+    animation: heartbeat 1.8s infinite;
+}
+
+.success h2 {
+    color: var(--cor-primaria);
+    font-size: 26px;
+    margin-bottom: 8px;
+}
+
+.success > p {
+    color: var(--cor-texto-sec);
+    margin-bottom: 20px;
+}
+
+#summary {
+    margin-top: 20px;
+    text-align: left;
+    padding: 20px;
+    border-radius: 14px;
+    background: var(--light-pink);
+    line-height: 2;
+    font-size: 15px;
+    color: var(--cor-texto);
+    border: 1px solid #ffd6e7;
+}
+
+#summary strong {
+    color: var(--cor-primaria);
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes heartbeat {
+    0%, 100% { transform: scale(1); }
+    10%       { transform: scale(1.15); }
+    20%       { transform: scale(1); }
+    30%       { transform: scale(1.08); }
+    40%       { transform: scale(1); }
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+    body {
+        padding: 20px 12px 45px;
+    }
+
+    .hero {
+        margin-bottom: 28px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        letter-spacing: -1px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .question,
+    .date-section {
+        padding: 18px;
+        border-radius: 18px;
+    }
+
+    .question h2,
+    .date-section h2 {
+        font-size: 17px;
+    }
+
+    .option span {
+        padding: 12px 14px;
+        font-size: 14px;
+    }
+
+    .fields {
+        grid-template-columns: 1fr;
+    }
+
+    .submit-button {
+        font-size: 15px;
+        padding: 15px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+        padding: 14px 18px;
+    }
+}
