@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nossos momentos ❤️</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/momentos.css">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
+</head>
+
+
+<body>
+
+    <a class="voltar" href="../index.html">← Voltar ao início</a>
+
+
+    <!-- =========================
+         TÍTULO
+    ========================= -->
+
+    <header class="titulo">
+        <h1>Nossos momentos ❤️</h1>
+        <p>Alguns dos momentos que eu nunca quero esquecer.</p>
+    </header>
+
+
+    <!-- =========================
+         CARROSSEL
+         Para adicionar um slide: copie um <figure class="slide">
+         e troque a foto no src.
+    ========================= -->
+
+    <section class="carrossel" id="carrossel" aria-roledescription="carrossel" aria-label="Nossos momentos">
+
+        <div class="slides">
+
+            <figure class="slide">
+                <img src="../assets/img/fotos/casa.jpeg" alt="Nós dois em casa">
+                <figcaption>Esse eu guardo comigo ❤️</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="../assets/img/fotos/vinho.jpeg" alt="Nós dois com vinho">
+                <figcaption>Nosso primeiro lance ❤️</figcaption>
+            </figure>
+
+            <figure class="slide">
+                <img src="../assets/img/fotos/maconha.jpeg" alt="Como tudo começou">
+                <figcaption>Como tudo começou ❤️</figcaption>
+            </figure>
+
+        </div>
+
+        <button class="carrossel-btn anterior" type="button" aria-label="Foto anterior">‹</button>
+        <button class="carrossel-btn proximo" type="button" aria-label="Próxima foto">›</button>
+
+        <div class="carrossel-pontos" role="tablist"></div>
+
+    </section>
+
+
+    <!-- =========================
+         MURAL DE POLAROIDS
+         Clique numa foto para ver ela inteira.
+    ========================= -->
+
+    <section class="momentos">
+
+        <div class="momentos-titulo">
+            <h2>Pequenos momentos, grandes lembranças 💕</h2>
+            <p>Porque cada momento com você merece um lugar aqui.</p>
+        </div>
+
+        <div class="mural">
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/adimirando.jpeg" alt="Nós dois no banheiro" loading="lazy">
+                <figcaption>
+                    <h3>Você estava linda</h3>
+                    <p>Só nós dois no banheiro, e eu te admirando sem conseguir disfarçar.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/especial.jpeg" alt="Nós dois no McDonald's" loading="lazy">
+                <figcaption>
+                    <h3>Aquela madrugada</h3>
+                    <p>Presos no McDonald's de madrugada, e foi aí que percebi o quanto gostava de você.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/madrugada.jpeg" alt="Jogos no McDonald's" loading="lazy">
+                <figcaption>
+                    <h3>Nossos jogos</h3>
+                    <p>Sem ter muito o que fazer, a gente inventou nossos próprios jogos pra passar o tempo.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/shopping.jpeg" alt="Nós dois no shopping" loading="lazy">
+                <figcaption>
+                    <h3>Eu só queria te ver</h3>
+                    <p>Fui te ver no hospital porque você estava doente, e depois ainda terminamos o dia no shopping.</p>
+                </figcaption>
+            </figure>
+
+            <!-- Fotos novas: troque os textos pelo que você quiser -->
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/mc.jpeg" alt="Nós dois com o guardanapo do jogo" loading="lazy">
+                <figcaption>
+                    <h3>Stop no guardanapo</h3>
+                    <p>Qualquer guardanapo vira tabuleiro quando é com você.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/nos.jpeg" alt="Selfie de nós dois com batata frita" loading="lazy">
+                <figcaption>
+                    <h3>Batatinha e biquinho</h3>
+                    <p>Nem a batata frita roubou a cena de você.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/nuggets.jpeg" alt="Nós dois com um nugget" loading="lazy">
+                <figcaption>
+                    <h3>O nugget testemunha</h3>
+                    <p>Ele viu tudo e não contou pra ninguém.</p>
+                </figcaption>
+            </figure>
+
+            <figure class="polaroid">
+                <img src="../assets/img/fotos/elevador.jpeg" alt="Nós dois no elevador" loading="lazy">
+                <figcaption>
+                    <h3>Selfie no elevador</h3>
+                    <p>Poucos andares, e mesmo assim eu queria que a viagem durasse mais.</p>
+                </figcaption>
+            </figure>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         FOTO AMPLIADA
+    ========================= -->
+
+    <dialog class="lightbox" id="lightbox">
+        <button class="lightbox-fechar" type="button" aria-label="Fechar">×</button>
+        <img src="" alt="">
+        <p class="lightbox-legenda"></p>
+    </dialog>
+
+
+    <footer>
+        Feito para guardar um pouquinho da nossa história ❤️
+    </footer>
+
+    <script src="../assets/js/momentos.js"></script>
+
+</body>
+
+</html>

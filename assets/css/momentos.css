@@ -1,0 +1,382 @@
+/* Estilos da página "Nossos momentos". Paleta e fonte em base.css */
+
+body {
+    padding: 30px 0 0;
+}
+
+
+/* =========================
+   TÍTULO
+========================= */
+
+.titulo {
+    text-align: center;
+    padding: 10px 20px 30px;
+}
+
+.titulo h1 {
+    margin: 0 0 6px;
+    color: var(--cor-primaria);
+    font-size: clamp(30px, 6vw, 44px);
+    letter-spacing: -1px;
+}
+
+.titulo p {
+    margin: 0;
+    font-family: var(--fonte-manuscrita);
+    font-size: 24px;
+    color: var(--cor-roxo);
+}
+
+
+/* =========================
+   CARROSSEL
+========================= */
+
+.carrossel {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.slides {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    border-radius: 24px;
+    overflow: hidden;
+    background: var(--cor-primaria);
+    box-shadow:
+        0 20px 50px rgba(95, 15, 64, 0.22),
+        0 0 0 6px var(--cor-branco);
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    opacity: 0;
+    transform: scale(1.04);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.slide.ativo {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 1;
+}
+
+/* Fundo desfocado da própria foto: a foto aparece inteira, sem cortar ninguém */
+.slide::before {
+    content: "";
+    position: absolute;
+    inset: -30px;
+    background: var(--foto) center / cover no-repeat;
+    filter: blur(28px) brightness(0.7) saturate(1.2);
+}
+
+.slide img {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.slide figcaption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 60px 24px 44px;
+    text-align: center;
+    color: #fff;
+    font-family: var(--fonte-manuscrita);
+    font-size: clamp(26px, 4.5vw, 38px);
+    font-weight: 700;
+    text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+    background: linear-gradient(to top, rgba(95, 15, 64, 0.85), transparent);
+}
+
+.carrossel-btn {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 46px;
+    height: 46px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--cor-primaria);
+    font-size: 30px;
+    line-height: 1;
+    cursor: pointer;
+    transform: translateY(-50%);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.2s, color 0.2s, transform 0.2s;
+}
+
+.carrossel-btn:hover {
+    background: var(--cor-destaque);
+    color: #fff;
+    transform: translateY(-50%) scale(1.08);
+}
+
+.carrossel-btn.anterior { left: 36px; }
+.carrossel-btn.proximo  { right: 36px; }
+
+.carrossel-pontos {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 18px;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+}
+
+.carrossel-pontos button {
+    width: 10px;
+    height: 10px;
+    padding: 0;
+    border: none;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.55);
+    cursor: pointer;
+    transition: width 0.3s, background-color 0.3s;
+}
+
+.carrossel-pontos button[aria-selected="true"] {
+    width: 28px;
+    background: #fff;
+}
+
+
+/* =========================
+   MURAL DE POLAROIDS
+========================= */
+
+.momentos {
+    max-width: 1100px;
+    margin: 70px auto 40px;
+    padding: 0 20px;
+}
+
+.momentos-titulo {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.momentos-titulo h2 {
+    margin: 0 0 6px;
+    color: var(--cor-primaria);
+    font-size: clamp(22px, 4vw, 30px);
+}
+
+.momentos-titulo p {
+    margin: 0;
+    color: var(--cor-texto-sec);
+}
+
+.mural {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 36px 28px;
+}
+
+.polaroid {
+    --giro: -2deg;
+    margin: 0;
+    padding: 12px 12px 18px;
+    background: var(--cor-branco);
+    border-radius: 4px;
+    box-shadow:
+        0 1px 2px rgba(0, 0, 0, 0.08),
+        0 12px 30px rgba(95, 15, 64, 0.14);
+    transform: rotate(var(--giro));
+    cursor: zoom-in;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Cada polaroid levemente torta pra um lado, como se estivesse num mural */
+.polaroid:nth-child(4n + 2) { --giro: 1.8deg; }
+.polaroid:nth-child(4n + 3) { --giro: -1deg; }
+.polaroid:nth-child(4n + 4) { --giro: 2.4deg; }
+
+/* Fitinha adesiva no topo */
+.polaroid::before {
+    content: "";
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    width: 90px;
+    height: 26px;
+    background: rgba(242, 108, 167, 0.35);
+    transform: translateX(-50%) rotate(calc(var(--giro) * -1.5));
+    z-index: 1;
+}
+
+.polaroid:hover,
+.polaroid:focus-visible {
+    transform: rotate(0deg) translateY(-8px) scale(1.03);
+    box-shadow:
+        0 2px 4px rgba(0, 0, 0, 0.08),
+        0 22px 45px rgba(95, 15, 64, 0.22);
+    z-index: 2;
+    outline: none;
+}
+
+.polaroid img {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    object-position: center 30%;
+    border-radius: 2px;
+    filter: saturate(1.05) contrast(1.03);
+}
+
+.polaroid figcaption {
+    padding: 14px 4px 0;
+    text-align: center;
+}
+
+.polaroid h3 {
+    margin: 0 0 4px;
+    font-family: var(--fonte-manuscrita);
+    font-size: 28px;
+    line-height: 1.1;
+    color: var(--cor-primaria);
+}
+
+.polaroid p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--cor-texto-sec);
+}
+
+
+/* =========================
+   FOTO AMPLIADA (LIGHTBOX)
+========================= */
+
+.lightbox {
+    max-width: min(92vw, 720px);
+    max-height: 92vh;
+    padding: 14px 14px 18px;
+    border: none;
+    border-radius: 6px;
+    background: var(--cor-branco);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    overflow: visible;
+}
+
+.lightbox::backdrop {
+    background: rgba(40, 6, 28, 0.82);
+    backdrop-filter: blur(4px);
+}
+
+.lightbox[open] {
+    animation: abrir 0.3s ease;
+}
+
+.lightbox img {
+    max-width: 100%;
+    max-height: calc(92vh - 110px);
+    margin: 0 auto;
+    object-fit: contain;
+}
+
+.lightbox-legenda {
+    margin: 12px 0 0;
+    text-align: center;
+    font-family: var(--fonte-manuscrita);
+    font-size: 30px;
+    color: var(--cor-primaria);
+}
+
+.lightbox-fechar {
+    position: absolute;
+    top: -16px;
+    right: -16px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: var(--cor-destaque);
+    color: #fff;
+    font-size: 26px;
+    line-height: 1;
+    cursor: pointer;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes abrir {
+    from { opacity: 0; transform: scale(0.94); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+
+/* =========================
+   RODAPÉ E VOLTAR
+========================= */
+
+footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    color: var(--cor-primaria);
+    font-family: var(--fonte-manuscrita);
+    font-size: 26px;
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 600px) {
+
+    .slides {
+        aspect-ratio: 4 / 3.4;
+        border-radius: 18px;
+    }
+
+    .carrossel-btn {
+        width: 38px;
+        height: 38px;
+        font-size: 24px;
+    }
+
+    .carrossel-btn.anterior { left: 28px; }
+    .carrossel-btn.proximo  { right: 28px; }
+
+    .mural {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 26px 14px;
+    }
+
+    .polaroid {
+        padding: 8px 8px 12px;
+    }
+
+    .polaroid h3 {
+        font-size: 22px;
+    }
+
+    .polaroid p {
+        display: none;
+    }
+
+    .lightbox-fechar {
+        top: -12px;
+        right: -8px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .slide,
+    .polaroid {
+        transition: none;
+    }
+}

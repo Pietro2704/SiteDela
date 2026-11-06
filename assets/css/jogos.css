@@ -1,0 +1,709 @@
+:root {
+    /* Cores específicas dos jogos (a paleta principal está em base.css) */
+    --cor-fundo-jogo: #fff7f9;
+    --cor-borda-jogo: #f7dce4;
+    --cor-desabilitado: #d9aeba;
+
+    /* Cores das categorias resolvidas do Conexo */
+    --cat-facil: #f8c8dc;
+    --cat-media: #CFA0F7;
+    --cat-dificil: #F26CA7;
+    --cat-especial: #5F0F40;
+}
+
+body {
+    padding: 30px 20px 50px;
+}
+
+
+
+/* =========================
+   ÁREA DOS JOGOS
+========================= */
+
+.jogos {
+    max-width: 700px;
+
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 35px;
+}
+
+
+.jogos h2 {
+    text-align: center;
+
+    margin: 10px 0 10px;
+
+    color: var(--cor-primaria);
+
+    font-size: 28px;
+}
+
+
+/* =========================
+   CARD DO JOGO
+========================= */
+
+.jogo-card {
+    background: var(--cor-branco);
+
+    padding: 30px;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 6px 25px rgba(95, 15, 64, 0.10);
+
+    text-align: center;
+
+    border: 1px solid var(--cor-borda-jogo);
+}
+
+
+.jogo-card h3 {
+    margin-top: 0;
+    margin-bottom: 12px;
+
+    font-size: 24px;
+
+    color: var(--cor-destaque);
+}
+
+
+.jogo-card p {
+    line-height: 1.6;
+
+    color: var(--cor-texto-secundario);
+
+    margin-bottom: 20px;
+}
+
+
+/* =========================
+   ÁREA DO JOGO
+========================= */
+
+.jogo {
+    margin-top: 15px;
+
+    padding: 25px;
+
+    background: var(--cor-fundo-jogo);
+
+    border-radius: 15px;
+
+    border: 1px solid var(--cor-borda-jogo);
+}
+
+
+/* =========================
+   CONEXO
+========================= */
+
+.conexo-status {
+    display: flex;
+
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 15px;
+
+    font-weight: bold;
+
+    color: var(--cor-primaria);
+}
+
+
+.conexo-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 10px;
+
+    margin-bottom: 20px;
+}
+
+
+.conexo-card {
+    background: var(--cor-branco);
+
+    border: 2px solid var(--cor-secundaria);
+
+    border-radius: 10px;
+
+    padding: 15px 5px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: var(--cor-primaria);
+
+    cursor: pointer;
+
+    text-transform: uppercase;
+
+    user-select: none;
+
+    transition: all 0.2s ease;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    min-height: 65px;
+
+    word-break: break-word;
+}
+
+
+.conexo-card:hover {
+    border-color: var(--cor-destaque);
+
+    transform: translateY(-2px);
+}
+
+
+.conexo-card.selected {
+    background: var(--cor-destaque);
+
+    color: var(--cor-branco);
+
+    border-color: var(--cor-destaque);
+}
+
+
+.conexo-resolved {
+    grid-column: span 4;
+
+    border-radius: 10px;
+
+    padding: 15px;
+
+    text-align: center;
+
+    animation: fadeIn 0.4s ease;
+}
+
+
+.conexo-resolved h4 {
+    margin: 0 0 5px 0;
+
+    font-size: 16px;
+
+    text-transform: uppercase;
+
+    color: inherit;
+}
+
+
+.conexo-resolved p {
+    margin: 0;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    color: inherit;
+}
+
+
+.conexo-botoes {
+    display: flex;
+
+    gap: 10px;
+}
+
+
+.conexo-botoes button {
+    flex: 1;
+
+    margin-top: 0;
+}
+
+
+/* =========================
+   ADIVINHE O NÚMERO
+========================= */
+
+#chute {
+    width: 100%;
+
+    padding: 14px;
+
+    border: 2px solid var(--cor-secundaria);
+
+    border-radius: 10px;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+
+#chute:focus {
+    border-color: var(--cor-destaque);
+
+    box-shadow:
+        0 0 0 3px rgba(242, 108, 167, 0.15);
+}
+
+
+/* =========================
+   BOTÕES GERAIS
+========================= */
+
+.jogo button,
+.btn-acao {
+    width: 100%;
+
+    margin-top: 12px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: var(--cor-destaque);
+
+    color: var(--cor-branco);
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s,
+        transform 0.1s;
+}
+
+
+.jogo button:hover,
+.btn-acao:hover {
+    background: var(--cor-roxo);
+
+    transform: translateY(-1px);
+}
+
+
+.jogo button:active,
+.btn-acao:active {
+    transform: translateY(1px);
+}
+
+
+.jogo button:disabled,
+.btn-acao:disabled {
+    background: var(--cor-desabilitado);
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+
+.btn-secundario {
+    background: var(--cor-secundaria);
+
+    color: var(--cor-primaria);
+}
+
+
+.btn-secundario:hover {
+    background: var(--cor-lilas);
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.mensagem {
+    min-height: 25px;
+
+    margin: 15px 0 5px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    color: var(--cor-primaria);
+}
+
+
+/* ==================================================
+   KARAOKÊ
+================================================== */
+
+.karaoke {
+    position: relative;
+
+    overflow: hidden;
+
+    min-height: 400px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(242, 108, 167, 0.10),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(167, 65, 207, 0.10),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            135deg,
+            #fff7f9,
+            #fcecf4
+        );
+
+    border-radius: 20px;
+}
+
+
+/* Área onde os popups aparecem */
+
+#popups {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    pointer-events: none;
+
+    z-index: 10;
+}
+
+
+.karaoke-conteudo {
+    position: relative;
+
+    z-index: 5;
+
+    width: min(100%, 430px);
+
+    text-align: center;
+
+    transition: opacity 0.3s;
+}
+
+
+/* Disco */
+
+.vinil {
+    width: 70px;
+    height: 70px;
+
+    margin: 0 auto;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 55px;
+
+    animation: girar 4s linear infinite;
+
+    animation-play-state: paused;
+
+    filter: drop-shadow(
+        0 5px 8px rgba(95, 15, 64, 0.20)
+    );
+}
+
+
+.karaoke h4 {
+    margin: 10px 0 0;
+
+    font-size: 24px;
+
+    color: var(--cor-primaria);
+}
+
+
+.karaoke .artista {
+    margin-top: 5px;
+
+    color: var(--cor-texto-secundario);
+
+    opacity: 0.7;
+}
+
+
+#musica {
+    width: 100%;
+
+    margin-top: 20px;
+}
+
+
+#iniciar {
+    margin-top: 15px;
+}
+
+
+/* =========================
+   NOTAS MUSICAIS
+========================= */
+
+.notas {
+    position: absolute;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+
+.notas::before {
+    content: "♪";
+
+    position: absolute;
+
+    left: 8%;
+    top: 20%;
+
+    font-size: 35px;
+
+    color: var(--cor-destaque);
+
+    opacity: 0.18;
+
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+
+.notas::after {
+    content: "♫";
+
+    position: absolute;
+
+    right: 8%;
+    bottom: 20%;
+
+    font-size: 40px;
+
+    color: var(--cor-roxo);
+
+    opacity: 0.18;
+
+    animation: flutuar 4s ease-in-out infinite reverse;
+}
+
+
+/* =========================
+   POPUPS DAS FRASES
+========================= */
+
+.popup {
+    position: absolute;
+
+    width: min(320px, 80%);
+
+    min-height: 70px;
+
+    padding: 15px 20px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: rgba(255, 255, 255, 0.94);
+
+    border: 2px solid var(--cor-secundaria);
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 8px 25px rgba(95, 15, 64, 0.18);
+
+    animation: aparecer 0.4s ease;
+
+    z-index: 20;
+}
+
+
+.popup p {
+    margin: 0;
+
+    color: var(--cor-primaria);
+
+    font-size: 18px;
+
+    font-weight: bold;
+
+    line-height: 1.4;
+
+    text-align: center;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+
+        transform:
+            scale(0.75)
+            translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            scale(1)
+            translateY(0);
+    }
+}
+
+
+@keyframes girar {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+
+@keyframes flutuar {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(5deg);
+    }
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(-5px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   RESPONSIVIDADE
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 25px 15px 40px;
+    }
+
+
+    .jogos h2 {
+        font-size: 23px;
+    }
+
+
+    .jogo-card {
+        padding: 18px 15px;
+    }
+
+
+    .jogo {
+        padding: 15px;
+    }
+
+
+    .conexo-grid {
+        gap: 6px;
+    }
+
+
+    .conexo-card {
+        font-size: 11px;
+
+        padding: 8px 2px;
+
+        min-height: 55px;
+    }
+
+
+    .conexo-botoes {
+        flex-direction: column;
+    }
+
+
+    .karaoke {
+        min-height: 420px;
+
+        padding: 15px;
+    }
+
+
+    .karaoke h4 {
+        font-size: 20px;
+    }
+
+
+    .vinil {
+        font-size: 45px;
+    }
+
+
+    .popup {
+        width: 75%;
+
+        min-height: 60px;
+
+        padding: 12px 15px;
+    }
+
+
+    .popup p {
+        font-size: 15px;
+    }
+
+}
+

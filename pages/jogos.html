@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Nossos Jogos ❤️</title>
+
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/jogos.css">
+    <link rel="icon" href="../assets/img/favicon.png" type="image/png">
+
+</head>
+
+
+<body>
+
+    <a class="voltar" href="../index.html">
+        ← Voltar para o formulário
+    </a>
+
+
+    <main class="jogos">
+
+        <h2>🎮 Jogos que fiz pra você ❤️</h2>
+
+
+        <!-- ==================================================
+             CARD 1: CONEXO
+        ================================================== -->
+
+        <div class="jogo-card">
+
+            <h3>🧩 Conexo: Edição Nossa</h3>
+
+            <p>
+                Encontre os
+                <strong>4 grupos de 4 palavras</strong>
+                que têm algo em comum sobre nós ou sobre coisas
+                que gostamos!
+            </p>
+
+
+            <div class="jogo">
+
+                <div class="conexo-status">
+
+                    <span>
+                        Erros restantes:
+                        <span id="conexo-vidas">
+                            ❤️❤️❤️❤️
+                        </span>
+                    </span>
+
+                </div>
+
+
+                <div
+                    id="conexo-grid"
+                    class="conexo-grid">
+                </div>
+
+
+                <div
+                    id="conexo-mensagem"
+                    class="mensagem">
+
+                    Selecione 4 palavras
+
+                </div>
+
+
+                <div class="conexo-botoes">
+
+                    <button
+                        id="btn-enviar-conexo"
+                        onclick="verificarConexo()"
+                        disabled>
+
+                        Enviar Chute
+
+                    </button>
+
+                </div>
+
+
+                <button
+                    id="btn-reiniciar-conexo"
+                    onclick="iniciarConexo()"
+                    style="display: none; background: var(--cor-roxo);">
+
+                    Jogar Novamente 🔄
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARD 2: ADIVINHE O NÚMERO
+        ================================================== -->
+
+        <div class="jogo-card">
+
+            <h3>🔢 Adivinhe o número</h3>
+
+            <p>
+                Eu pensei em um número entre
+                <strong>1 e 100</strong>.
+                Será que você consegue descobrir?
+            </p>
+
+
+            <div class="jogo">
+
+                <input
+                    type="number"
+                    id="chute"
+                    min="1"
+                    max="100"
+                    placeholder="Digite seu chute">
+
+
+                <button
+                    id="botaoChutar"
+                    onclick="verificarChute()">
+
+                    Chutar 🎯
+
+                </button>
+
+
+                <p
+                    id="mensagem"
+                    class="mensagem">
+                </p>
+
+
+                <button
+                    id="novoJogo"
+                    onclick="iniciarJogoNumero()"
+                    style="display: none; background: var(--cor-roxo);">
+
+                    Jogar novamente ❤️
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             CARD 3: KARAOKÊ
+        ================================================== -->
+
+        <div class="jogo-card karaoke-card">
+
+            <h3>
+                🎵 Can't Take My Eyes Off You
+            </h3>
+
+
+            <p>
+                Uma musiquinha especial pra você ❤️
+            </p>
+
+
+            <div class="jogo karaoke">
+
+
+                <!-- Decoração -->
+
+                <div class="notas">
+                    ♪ ♫
+                </div>
+
+
+                <!-- Conteúdo principal -->
+
+                <div class="karaoke-conteudo">
+
+                    <div class="vinil">
+                        💿
+                    </div>
+
+
+                    <h4>
+                        Can't Take My Eyes Off You
+                    </h4>
+
+
+                    <p class="artista">
+                        Heath Ledger
+                    </p>
+
+
+                    <audio
+                        id="musica"
+                        >
+
+                        <source
+                            src="../assets/audio/cant-take-my-eyes-off-you.mp3"
+                            type="audio/mpeg">
+
+                        Seu navegador não suporta áudio.
+
+                    </audio>
+
+
+                    <button id="iniciar">
+
+                        Começar 🎤
+
+                    </button>
+
+                </div>
+
+
+                <!-- Frases da música -->
+
+                <div id="popups"></div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="../assets/js/jogos.js"></script>
+
+</body>
+
+</html>

@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Site que eu fiz pra ela</title>
-    <link rel="stylesheet" href="./style/style.css">
-    <link rel="shortcut icon" href="./imgs/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/css/base.css">
+    <link rel="stylesheet" href="./assets/css/home.css">
+    <link rel="icon" href="./assets/img/favicon.png" type="image/png">
 </head>
 
 <body>
@@ -22,10 +23,10 @@
 
             <!-- NAVEGAÇÃO -->
             <nav class="nav-links">
-                <a class="nav-link destaque" href="./views/carrossel.html">
+                <a class="nav-link destaque" href="./pages/momentos.html">
                     📸 Nossos momentos ❤️
                 </a>
-                <a class="nav-link" href="./views/jogos.html">
+                <a class="nav-link" href="./pages/jogos.html">
                     🎮 Jogos que fiz pra você
                 </a>
             </nav>
@@ -35,9 +36,45 @@
 
         <form id="dateForm">
 
+            <!-- LOCAL -->
+            <section class="question" data-resumo="📍 Onde vai ser">
+                <h2>📍 <span class="num"></span>Onde vai ser?</h2>
+                <div class="options">
+
+                    <label class="option">
+                        <input type="checkbox" name="local" value="Na sua casa">
+                        <span>Na sua casa</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="local" value="Na minha casa">
+                        <span>Na casa do Pietro</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="local" value="Num shopping">
+                        <span>Num shopping</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="local" value="Num lugar que a gente nunca foi">
+                        <span>Num lugar que a gente nunca foi</span>
+                    </label>
+
+                    <label class="option">
+                        <input type="checkbox" name="local" value="outro">
+                        <span>Outro</span>
+                        <textarea class="outro-texto" name="local_outro"
+                            placeholder="Me fala o lugar que você tá pensando..."></textarea>
+                    </label>
+
+                </div>
+            </section>
+
+
             <!-- COMIDA -->
-            <section class="question">
-                <h2>🍔 1. Onde vamos comer?</h2>
+            <section class="question" data-resumo="🍔 Onde vamos comer">
+                <h2>🍔 <span class="num"></span>Onde vamos comer?</h2>
                 <div class="options">
 
 
@@ -78,8 +115,8 @@
 
 
             <!-- ATIVIDADE -->
-            <section class="question">
-                <h2>🎬 2. Vamos fazer o que?</h2>
+            <section class="question" data-resumo="🎬 O rolê">
+                <h2>🎬 <span class="num"></span>Vamos fazer o que?</h2>
                 <div class="options">
 
                     <label class="option">
@@ -115,8 +152,8 @@
 
 
             <!-- CLIMA -->
-            <section class="question">
-                <h2>🌙 3. Ta pensando em que?</h2>
+            <section class="question" data-resumo="🌙 O clima">
+                <h2>🌙 <span class="num"></span>Ta pensando em que?</h2>
                 <div class="options">
 
                     <label class="option">
@@ -152,8 +189,8 @@
 
 
             <!-- NÃO PODE FALTAR -->
-            <section class="question">
-                <h2>✨ 4. O que NÃO pode faltar?</h2>
+            <section class="question" data-resumo="✨ Não pode faltar">
+                <h2>✨ <span class="num"></span>O que NÃO pode faltar?</h2>
                 <div class="options">
 
                     <label class="option">
@@ -188,8 +225,8 @@
 
 
             <!-- DEPOIS DO DATE -->
-            <section class="question">
-                <h2>😏 5. E depois do date?</h2>
+            <section class="question" data-resumo="😏 Depois do date">
+                <h2>😏 <span class="num"></span>E depois do date?</h2>
                 <div class="options">
 
                     <label class="option">
@@ -258,17 +295,17 @@
             <div id="summary"></div>
 
 
-<button type="button" id="whatsappDate" class="submit-button whatsapp-button">
-    💬 Enviar pelo WhatsApp
-</button>
+            <button type="button" id="whatsappDate" class="submit-button whatsapp-button">
+                💬 Enviar pelo WhatsApp
+            </button>
 
-<button type="button" id="editDate" class="submit-button">
-    Mudar alguma coisa 👀
-</button>
+            <button type="button" id="editDate" class="submit-button">
+                Mudar alguma coisa 👀
+            </button>
         </div>
     </main>
 
-    <script src="./js/script.js"></script>
+    <script src="./assets/js/home.js"></script>
 </body>
 
 </html>
